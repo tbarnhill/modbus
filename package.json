@@ -1,0 +1,23 @@
+{
+  "name": "modbus",
+  "version": "1.0.1",
+  "description": "A simple API for Modbus",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbarnhill/modbus.git"
+  },
+  "keywords": [
+    "modbus",
+    "tcp"
+  ],
+  "author": "Tyler Barnhill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tbarnhill/modbus/issues"
+  },
+  "homepage": "https://github.com/tbarnhill/modbus#readme"
+}
