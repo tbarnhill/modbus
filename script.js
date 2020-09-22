@@ -195,7 +195,7 @@ function makeDataPacket(transId,protoId,unitId,funcCode,address,data,length){
         buf.writeUInt16BE(length,10)
     }
     if(funcCode==5||funcCode==6){
-        buf.writeUInt16BE(data,10)
+        buf.writeInt16BE(data,10)
     }
     if(funcCode==15||funcCode==16){
         buf.writeInt16BE(length,10)
