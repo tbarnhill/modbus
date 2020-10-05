@@ -1,13 +1,19 @@
 # modbus
-A simple interface for Modbus over TCP/IP
+A simple interface for Modbus
 * Read and write modbus registers
+* One interface for both RTU and TCP
 * Support for promises and callbacks 
 
 
 # Quick Example
 ``` javascript
 const modbus = require('modbus')
-const device = modbus(ipAddress,port,unitId)
+
+//Create a TCP Device
+const device = modbus(ipAddress,port,unitId) 
+
+//Create an RTU Device
+const device = modbus(commPort,baudRate)
 
 //Read
 let myCoil = await device.read('c0')
