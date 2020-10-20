@@ -30,7 +30,7 @@ await device.write('hr0',15)
 ## Constructor 
 ``` javascript
 const modbus = require('modbus')
-const device = modbus(ipAddress,port,unitId)
+const tcpDevice = modbus(ipAddress,port,unitId)
 ```
 
 
@@ -81,6 +81,38 @@ Holding Register           hr           16 Bits     Read / Write
 * FC6 - Write Single Register
 * FC15 - Write Multiple Coils
 * FC16 - Write Multiple Registers
+
+
+# Recompile for Electron
+If `modbus` is not compiled for the correct version of Node.js, you will not be able to communicate via Modbus RTU. (Modbus TCP is not affected)
+
+When you install `modbus` it will compile against the version of Node.js on your machine, not against the Node.js runtime bundled with Electron.
+
+
+To recompile `modbus` (or any native Node.js module) for Electron, you can use `electron-rebuild`
+
+Install modbus:
+```sh
+npm i modbus
+```
+
+Install electron-rebuild with `--save-dev`:
+```sh
+npm install --save-dev electron-rebuild
+```
+
+Run electron-rebuild:
+```sh
+$(npm bin)/electron-rebuild
+```
+
+Or if you're on Windows:
+```sh
+.\node_modules\.bin\electron-rebuild.cmd
+```
+
+
+
 
 
 
