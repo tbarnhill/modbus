@@ -324,7 +324,4 @@ function Tcp(ipAddress,port){
     return rtn
 }
 
-    return rtn
-}
-
 
