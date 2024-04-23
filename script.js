@@ -287,15 +287,13 @@ function Tcp(ipAddress,port){
     rtn.ipAddress = ipAddress
     rtn.port = port
     rtn.online = false
-
     rtn.send=(data)=>{
-        if(client.writable){
+        if(rtn.online){
             client.write(data)
         }
         else{
             connect(()=>{client.write(data)})
         }
-  
     }
     rtn.onData = ()=>{}
 
@@ -310,14 +308,21 @@ function Tcp(ipAddress,port){
     client.on('connect',()=>{
         rtn.online=true
     })
+    
+    client.on('error',(e)=>{
+        rtn.online=false
+        console.log(e.message);
+    })
 
     let connect=(callback)=>{
-        
         client.connect(rtn.port, rtn.ipAddress, ()=> {
             if(callback){callback()}
         })
 
     }
+
+    return rtn
+}
 
     return rtn
 }
