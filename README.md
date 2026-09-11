@@ -16,9 +16,9 @@ const device = modbus(ipAddress,port,unitId)
 const device = modbus(commPort,baudRate)
 
 //Read
-let myCoil = await device.read('c0')
-let myHoldingRegister = await device.read('hr0') 
-let myHoldingRegisters = await device.read('hr1-2') 
+let motorFault = await device.read('c0')
+let motorTempature = await device.read('hr0') 
+let motorEncoderPosition = await device.read('hr1-2') 
 
 //Write
 await device.write('c0',true)
